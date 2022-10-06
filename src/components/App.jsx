@@ -1,42 +1,43 @@
-import axios from 'axios';
 import { Component } from 'react';
-
-const params = {
-  key: '29563076-116975c46708de5d99dfe50c3',
-  image_type: 'photo',
-  orientation: 'horizontal',
-  safesearch: true,
-  per_page: 12,
-};
+import { Searchbar } from './Searchbar/Searchbar';
+import * as Api from '../api/Api';
 
 export class App extends Component {
   state = {
+    images: [],
+    isLoading: false,
     searchQuery: '',
     currentPage: 1,
   };
 
   async componentDidMount() {
     try {
-      const url = `https://pixabay.com/api/?q=${this.state.searchQuery}&page=${this.state.searchQuery}`;
-
-      const responce = await axios.get(url, { params });
-      console.log(responce.data.hits);
+      // const searchImages = await Api.searchImages('react');
+      // console.log(searchImages);
+      // this.setState({ articles });
     } catch (error) {}
   }
 
+  searchImages = async searchText => {
+    console.log(searchText);
+    this.setState({ isLoading: true });
+    const searchImages = await Api.searchImages(searchText);
+
+    this.setState(() => ({
+      images: [...searchImages],
+      isLoading: false,
+    }));
+  };
+
   render() {
+    const { isLoading } = this.state;
+
     return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
-        React homework template
+      <div>
+        {<Searchbar onSubmit={this.searchImages} />}
+        {isLoading && <h1>Загружаю ...</h1>}
+
+        {/* <Api /> */}
       </div>
     );
   }
