@@ -2,10 +2,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FiPlusCircle } from 'react-icons/fi';
 import css from '../../styles/Styles.module.css';
 
-export const Searchbar = ({ onSubmit }) => {
+export const Searchbar = ({ onSubmit, isSubmitting }) => {
   const handleSubmit = (value, actions) => {
-    // console.log(value.search);
-    onSubmit(value.search);
+    onSubmit(value.search.trim());
     actions.resetForm();
   };
 
@@ -13,7 +12,11 @@ export const Searchbar = ({ onSubmit }) => {
     <Formik initialValues={{ search: '' }} onSubmit={handleSubmit}>
       <header className={css.searchbar}>
         <Form className={css.form}>
-          <button type="submit" className={css.search__button}>
+          <button
+            type="submit"
+            className={css.search__button}
+            disabled={isSubmitting}
+          >
             <FiPlusCircle size={22} />
           </button>
 
