@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
-import { FiPlusCircle } from 'react-icons/fi';
+import { GoSearch } from 'react-icons/go';
 import css from '../../styles/Styles.module.css';
 
 export const Searchbar = ({ onSubmit, isSubmitting }) => {
@@ -18,7 +18,7 @@ export const Searchbar = ({ onSubmit, isSubmitting }) => {
             className={css.search__button}
             disabled={isSubmitting}
           >
-            <FiPlusCircle size={22} />
+            <GoSearch size={22} />
           </button>
 
           <Field

@@ -102,7 +102,9 @@ export class App extends Component {
         {images.length > 0 && (
           <>
             <ImageGallery images={images} onClickImg={this.openModal} />
-            {currentImgPerPage < PER_PAGE && <h2>No more pictures :(</h2>}
+            {currentImgPerPage < PER_PAGE && (
+              <h2 className={css.no__more}>No more pictures :(</h2>
+            )}
           </>
         )}
 

@@ -86,6 +86,7 @@ img {
 }
 
 .search__button:hover {
+  color: #3f51b5;
   opacity: 1;
 }
 
@@ -193,4 +194,8 @@ img {
 .button:focus {
   background-color: #303f9f;
   scale: 1.05;
+}
+
+.no__more {
+  text-align: center;
 }
