@@ -1,4 +1,5 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import PropTypes from 'prop-types';
+import { Formik, Form, Field } from 'formik';
 import { FiPlusCircle } from 'react-icons/fi';
 import css from '../../styles/Styles.module.css';
 
@@ -25,9 +26,15 @@ export const Searchbar = ({ onSubmit, isSubmitting }) => {
             type="text"
             placeholder="Search images and photos"
             name="search"
+            autoComplete="off"
           />
         </Form>
       </header>
     </Formik>
   );
+};
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
 };

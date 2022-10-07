@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { Component } from 'react';
+
+export const PER_PAGE = 12;
 
 const params = {
   key: '29563076-116975c46708de5d99dfe50c3',
   image_type: 'photo',
   orientation: 'horizontal',
-  per_page: 12,
+  per_page: PER_PAGE,
 };
 
 export const getImages = async (text, currentPage) => {

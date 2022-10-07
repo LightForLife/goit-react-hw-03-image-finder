@@ -29,7 +29,7 @@ img {
 /*
  * Стили компонента App
  */
-.App {
+.app {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16px;
@@ -48,7 +48,6 @@ img {
   justify-content: center;
   align-items: center;
   min-height: 64px;
-  margin-bottom: 16px;
   padding-right: 24px;
   padding-left: 24px;
   padding-top: 12px;
@@ -147,7 +146,7 @@ img {
  * Стили компонента Modal
  */
 
-.Overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -160,7 +159,7 @@ img {
   z-index: 1200;
 }
 
-.Modal {
+.modal {
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
 }
@@ -168,7 +167,8 @@ img {
 /*
 * Стили компонента Buton (Load more)
 */
-.Button {
+.button {
+  margin: 0 auto;
   padding: 8px 16px;
   border-radius: 2px;
   background-color: #3f51b5;
@@ -189,7 +189,8 @@ img {
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
-.Button:hover,
-.Button:focus {
+.button:hover,
+.button:focus {
   background-color: #303f9f;
+  scale: 1.05;
 }
