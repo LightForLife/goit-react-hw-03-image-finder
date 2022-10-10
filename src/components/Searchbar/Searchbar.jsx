@@ -4,9 +4,9 @@ import { GoSearch } from 'react-icons/go';
 import css from '../../styles/Styles.module.css';
 
 export const Searchbar = ({ onSubmit, isSubmitting }) => {
-  const handleSubmit = (value, actions) => {
+  const handleSubmit = (value, _) => {
     onSubmit(value.search.trim());
-    actions.resetForm();
+    // actions.resetForm();
   };
 
   return (

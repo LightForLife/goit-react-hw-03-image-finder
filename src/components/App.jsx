@@ -38,7 +38,7 @@ export class App extends Component {
         const images = await getImages(nextQuery, this.state.currentPage);
 
         if (images.length === 0) {
-          this.setState({ isLoading: false });
+          this.setState({ currentImgPerPage: null });
           toast.error(`Images ${this.state.searchQuery} not found`);
           return;
         }
@@ -54,9 +54,20 @@ export class App extends Component {
         this.setState({ isLoading: false });
       }
     }
+
+    if (this.state.currentPage > 1) {
+      window.scrollBy({
+        top: 400,
+        behavior: 'smooth',
+      });
+    }
   }
 
   searchImages = searchText => {
+    if (this.state.searchQuery === searchText) {
+      return;
+    }
+
     this.setState(() => ({
       images: [],
       currentPage: 1,
